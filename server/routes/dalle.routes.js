@@ -1,14 +1,23 @@
 import express from "express";
 import * as dotenv from "dotenv";
-import OpenAI from "openai";
+import { Configuration, OpenAIApi } from "openai";
+
+// version 4.0+
+// import OpenAI from "openai";
 
 dotenv.config();
 
 const router = express.Router();
 
-const openai = new OpenAI({
+const config = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
+const openai = new OpenAIApi(config);
+
+// version 4.0+
+// const openai = new OpenAI({
+//   apiKey: process.env.OPENAI_API_KEY,
+// });
 
 router.route("/").get((req, res) => {
   res.status(200).json({ message: "Hello from DALL.E 2.0" });
@@ -17,7 +26,7 @@ router.route("/").get((req, res) => {
 router.route("/").post(async (req, res) => {
   try {
     const { prompt } = req.body;
-    const response = await openai.images.generate({
+    const response = await openai.createImage({
       prompt,
       n: 1,
       size: "1024x1024",

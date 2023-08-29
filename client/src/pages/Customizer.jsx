@@ -59,6 +59,7 @@ const Customizer = () => {
       setGeneratingImg(true);
       const response = await fetch(
         "https://threejs-ai-shirt-ecnf.onrender.com",
+        // "http://localhost:5173/",
         {
           method: "POST",
           headers: {

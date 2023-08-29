@@ -12,7 +12,6 @@
   "dependencies": {
     "@react-three/drei": "^9.80.3",
     "@react-three/fiber": "^8.13.6",
-    "abort-controller": "^3.0.0",
     "framer-motion": "^10.15.2",
     "maath": "^0.7.0",
     "react": "^18.2.0",
